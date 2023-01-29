@@ -39,7 +39,6 @@ class Cats extends React.Component {
           key={item.id}
           item={item}
           toggleHoverState={this.props.toggleHoverState}
-          isHover={this.props.isHover}
         />
         <Bottom setSelected={this.props.setSelected} item={item} />
       </li>

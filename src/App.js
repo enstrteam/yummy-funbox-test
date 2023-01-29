@@ -5,7 +5,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isHover: true,
       products: [
         {
           id: "1",
@@ -18,6 +17,7 @@ class App extends React.Component {
           bottomText: "Печень утки разварная с артишоками.",
           isSelected: false,
           isAvailable: true,
+          isHovering: true,
         },
         {
           id: "2",
@@ -30,6 +30,7 @@ class App extends React.Component {
           bottomText: "Головы щучьи с чесноком да свежайшая сёмгушка.",
           isSelected: false,
           isAvailable: true,
+          isHovering: true,
         },
         {
           id: "3",
@@ -42,6 +43,7 @@ class App extends React.Component {
           bottomText: "Филе из цыплят с трюфелями в бульоне.",
           isSelected: false,
           isAvailable: false,
+          isHovering: true,
         },
       ],
     };
@@ -56,20 +58,21 @@ class App extends React.Component {
         products={this.state.products}
         setSelected={this.setSelected}
         toggleHoverState={this.toggleHoverState}
-        isHover={this.state.isHover}
       ></Main>
     );
   }
 
-  toggleHoverState() {
-    this.setState((state) => ({ isHover: !state.isHover }));
+  toggleHoverState(item) {
+    const itemstate = this.state.products[item.id - 1];
+    itemstate.isHovering = !itemstate.isHovering;
+    this.setState({ itemstate });
   }
 
   setSelected(item) {
     const itemstate = this.state.products[item.id - 1];
     if (itemstate.isAvailable) itemstate.isSelected = !itemstate.isSelected;
     this.setState({ itemstate });
-    if (!this.state.isHover) this.toggleHoverState();
+    if (!itemstate.isHovering) this.toggleHoverState(item);
   }
 }
 

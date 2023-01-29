@@ -10,15 +10,16 @@ class Card extends React.Component {
   render() {
     return (
       <div
-        className={`card ${!this.props.isHover && "hover"}`}
+        className={`card ${!this.props.item.isHovering && "hover"}`}
         onClick={(state) => {
           this.props.setSelected(this.props.item);
         }}
         onMouseEnter={() => {
-          this.props.toggleHoverState();
+          this.props.toggleHoverState(this.props.item);
         }}
         onMouseLeave={() => {
-          if (!this.props.isHover) this.props.toggleHoverState();
+          if (!this.props.item.isHovering)
+            this.props.toggleHoverState(this.props.item);
         }}
       >
         <div className="text-wrapper">
@@ -40,7 +41,7 @@ class Card extends React.Component {
   }
 
   TopTextSelect() {
-    if (!this.props.isHover && this.props.item.isSelected)
+    if (!this.props.item.isHovering && this.props.item.isSelected)
       return <p className="top-text hover">{this.props.item.topHoverText}</p>;
     else return <p className="top-text">{this.props.item.topText}</p>;
   }
