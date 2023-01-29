@@ -190,6 +190,10 @@ li {
   text-align: start;
 }
 
+.top-text.hover{
+  color:#E62E7A;
+}
+
 .food-name {
   font-size: 48px;
   font-weight: bold;

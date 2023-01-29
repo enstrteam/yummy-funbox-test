@@ -13,6 +13,8 @@ class App extends React.Component {
           ingredient: "c фуа-гра",
           weight: "0,5",
           promo: ["10 порций", "мышь в подарок"],
+          topText: "Сказочное заморское яство",
+          topHoverText: "Котэ не одобряет?",
           bottomText: "Печень утки разварная с артишоками.",
           isSelected: false,
           isAvailable: true,
@@ -23,6 +25,8 @@ class App extends React.Component {
           ingredient: "c рыбой",
           weight: "2",
           promo: ["40 порций", "2 мыши в подарок"],
+          topText: "Сказочное заморское яство",
+          topHoverText: "Котэ не одобряет?",
           bottomText: "Головы щучьи с чесноком да свежайшая сёмгушка.",
           isSelected: false,
           isAvailable: true,
@@ -33,6 +37,8 @@ class App extends React.Component {
           ingredient: "c курой",
           weight: "5",
           promo: ["100 порций", "5 мышей в подарок"],
+          topText: "Сказочное заморское яство",
+          topHoverText: "Котэ не одобряет?",
           bottomText: "Филе из цыплят с трюфелями в бульоне.",
           isSelected: false,
           isAvailable: false,
@@ -63,8 +69,7 @@ class App extends React.Component {
     const itemstate = this.state.products[item.id - 1];
     if (itemstate.isAvailable) itemstate.isSelected = !itemstate.isSelected;
     this.setState({ itemstate });
-    if (!this.state.isHover)
-      this.toggleHoverState();
+    if (!this.state.isHover) this.toggleHoverState();
   }
 }
 

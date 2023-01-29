@@ -4,6 +4,7 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.PromoList = this.PromoList.bind(this);
+    this.TopTextSelect = this.TopTextSelect.bind(this);
   }
 
   render() {
@@ -21,7 +22,7 @@ class Card extends React.Component {
         }}
       >
         <div className="text-wrapper">
-          <p className="top-text">Сказочное заморское яство</p>
+          {this.TopTextSelect()}
           <h1 className="food-name">{this.props.item.name}</h1>
           <h2 className="ingredients">{this.props.item.ingredient}</h2>
           {this.PromoList()}
@@ -36,6 +37,12 @@ class Card extends React.Component {
   PromoList() {
     const promolist = this.props.item.promo.map((el) => <li>{el}</li>);
     return <ul className="promo">{promolist}</ul>;
+  }
+
+  TopTextSelect() {
+    if (!this.props.isHover && this.props.item.isSelected)
+      return <p className="top-text hover">{this.props.item.topHoverText}</p>;
+    else return <p className="top-text">{this.props.item.topText}</p>;
   }
 }
 
