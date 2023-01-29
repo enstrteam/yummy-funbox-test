@@ -5,10 +5,10 @@ const BottomText = (props) => {
   const disabledBottomText = `Печалька, ${props.item.ingredient}  закончился.`;
 
   if (!props.item.isAvailable)
-    return <p class="bottom-text disabled">{disabledBottomText}</p>;
+    return <p className="bottom-text disabled">{disabledBottomText}</p>;
   else if (!props.item.isSelected)
     return (
-      <p class="bottom-text">
+      <p className="bottom-text">
         {defaulBottomText}
         <a href="##" onClick={(state) => props.setSelected(props.item)}>
           купи.
