@@ -1,0 +1,230 @@
+@font-face {
+  font-family: "Exo2.0";
+  src: url("../fonts/Exo2.0-Thin.otf") format("opentype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 000000%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.5) 100%,
+      rgba(255, 255, 255, 0.5) 100%
+    ),
+    url("Pattern.png");
+  font-family: "Trebuchet MS";
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.page-title {
+  font-family: "Exo2.0", "Arial", sans-serif;
+  font-size: 36px;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 36px 0 24px;
+}
+
+.cats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-container {
+  width: 100%;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card-default,
+.selected,
+.disabled {
+  padding-bottom: 30px;
+}
+
+.card-default > .hover:hover .card {
+  background: linear-gradient(135deg, transparent 30px, #2ea8e6 0);
+}
+
+.selected > .card {
+  background: linear-gradient(135deg, transparent 30px, #d91667 0);
+}
+.selected > .hover:hover .card {
+  background: linear-gradient(135deg, transparent 30px, #e52e7a 0);
+}
+
+.disabled > .card {
+  color: #b3b3b3;
+  background: linear-gradient(135deg, transparent 30px, #b3b3b3 0);
+}
+
+.disabled > .card::before {
+  opacity: 0.5;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 320px;
+  height: 480px;
+  border-radius: 0px 12px 12px 12px;
+  background: linear-gradient(135deg, transparent 30px, #1698d9 0);
+  overflow: hidden;
+  z-index: 0;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  left: 4px;
+  bottom: 4px;
+  border-radius: 0px 9px 9px 9px;
+  background: url("../img/Photo.png") no-repeat -28px 200px,
+    linear-gradient(135deg, transparent 29px, #f2f2f2 0);
+  z-index: -1;
+  overflow: hidden;
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-default > .hover:hover .oval {
+  background-color: #2ea8e6;
+}
+
+.selected > .card .oval {
+  background-color: #d91667;
+}
+
+.selected > .hover:hover .oval {
+  background-color: #e52e7a;
+}
+
+.disabled > .card .oval {
+  background-color: #b3b3b3;
+}
+.oval {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #1698d9;
+  position: absolute;
+  top: 384px;
+  left: 224px;
+  z-index: 2;
+}
+
+.weight {
+  font-size: 42px;
+  font-weight: 100;
+  color: white;
+  padding-top: 8px;
+}
+
+.weight:after {
+  position: absolute;
+  top: 48px;
+  left: 30px;
+  white-space: pre;
+  content: "кг";
+  font-size: 21px;
+  font-weight: 100;
+  color: white;
+}
+
+.text-block {
+  margin: 0;
+}
+
+.disabled > .card > .text-wrapper > .top-text,
+.disabled > .card > .text-wrapper > .food-name,
+.disabled > .card > .text-wrapper > .ingredients,
+.disabled > .card > .text-wrapper > .promo {
+  color: #b3b3b3;
+}
+
+.top-text {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: normal;
+  color: #666666;
+  text-align: start;
+}
+
+.food-name {
+  font-size: 48px;
+  font-weight: bold;
+  color: black;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.ingredients {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+
+.promo {
+  padding: 0;
+  padding-top: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #666666;
+  list-style-type: none;
+}
+
+.bottom-text {
+  font-size: 13px;
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+}
+
+.bottom-text.disabled {
+  color: #ffff66;
+}
+
+.bottom-text a {
+  color: #1698d9;
+  text-decoration-style: dotted;
+}
