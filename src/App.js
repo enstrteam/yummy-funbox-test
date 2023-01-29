@@ -63,7 +63,8 @@ class App extends React.Component {
     const itemstate = this.state.products[item.id - 1];
     if (itemstate.isAvailable) itemstate.isSelected = !itemstate.isSelected;
     this.setState({ itemstate });
-    this.toggleHoverState();
+    if (!this.state.isHover)
+      this.toggleHoverState();
   }
 }
 
