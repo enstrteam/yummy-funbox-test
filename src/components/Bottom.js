@@ -15,7 +15,7 @@ const BottomText = (props) => {
         </a>
       </p>
     );
-  else return <p class="bottom-text">{props.item.bottomText}</p>;
+  else return <p className="bottom-text">{props.item.bottomText}</p>;
 };
 
 export default BottomText;
