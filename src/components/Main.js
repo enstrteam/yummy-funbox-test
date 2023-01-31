@@ -1,11 +1,11 @@
 import React from "react";
-import Cats from "./Cats";
+import Items from "./Items";
 
 class Main extends React.Component {
   render() {
     return (
       <main>
-        <Cats
+        <Items
           setSelected={this.props.setSelected}
           products={this.props.products}
           toggleHoverState={this.props.toggleHoverState}
