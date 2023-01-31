@@ -24,11 +24,11 @@ class Card extends React.Component {
       >
         <div className="text-wrapper">
           {this.TopTextSelect()}
-          <h1 className="food-name">{this.props.item.name}</h1>
-          <h2 className="ingredients">{this.props.item.ingredient}</h2>
+          <h2 className="food-name">{this.props.item.name}</h2>
+          <span className="ingredients">{this.props.item.ingredient}</span>
           {this.PromoList()}
           <div className="oval">
-            <p className="weight">{this.props.item.weight}</p>
+            <span className="weight">{this.props.item.weight}</span>
           </div>
         </div>
       </div>
@@ -42,8 +42,8 @@ class Card extends React.Component {
 
   TopTextSelect() {
     if (!this.props.item.isHovering && this.props.item.isSelected)
-      return <p className="top-text hover">{this.props.item.topHoverText}</p>;
-    else return <p className="top-text">{this.props.item.topText}</p>;
+      return <span className="top-text hover">{this.props.item.topHoverText}</span>;
+    else return <span className="top-text">{this.props.item.topText}</span>;
   }
 }
 
